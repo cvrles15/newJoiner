@@ -1,0 +1,28 @@
+{
+  "name": "newjoiner",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "express": "^4",
+    "@cap-js/hana": "^1",
+    "@cap-js/notifications": "*"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.9.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "build:cf": "cds build/all",
+    "undeploy:cf": "cf undeploy bicar --delete-services --delete-service-keys",
+    "deploy:cf": "npx mbt build --mtar deploy.mtar && cf deploy ./mta_archives/deploy.mtar",
+    "deploy_data:cf": "npx mbt build --mtar deploy.mtar && cf deploy ./mta_archives/deploy.mtar -m bicar-db-deployer",
+    "app": "npm run start --prefix app/bicar",
+    "cf:get_env": "cf env bicar-srv > default-env.json"
+  }
+}

@@ -1,0 +1,6 @@
+ID,name,email,role,startDate,createdAt,createdBy,modifiedAt,modifiedBy
+b1a4f89e-3d62-45ba-a2d9-84c583e0fbea,Ana Gómez,ana.gomez@empresa.com,Backend Developer,2023-06-15,2025-04-02T09:00:00Z,admin,2025-04-02T10:00:00Z,manager
+d2f5b9c8-7e5f-4e6a-81d6-63d7fe41e2db,Luis Martínez,luis.martinez@empresa.com,Frontend Developer,2022-12-01,2025-04-01T08:45:00Z,admin,2025-04-02T09:15:00Z,support
+c3d8a1f7-4e2b-49db-9eac-a2c9f74d3ab6,Maria López,maria.lopez@empresa.com,Fullstack Developer,2023-03-10,2025-03-28T15:00:00Z,support,2025-04-01T18:20:00Z,admin
+f4e6c2d3-8f5d-4b6c-92db-38c5a2f7de1b,Carlos Rivera,carlos.rivera@empresa.com,Data Engineer,2021-09-20,2025-03-25T10:30:00Z,admin,2025-03-25T12:30:00Z,manager
+a5b9d7f4-2c6d-45e2-8abd-4e7c9b3def2c,Sofía Delgado,sofia.delgado@empresa.com,UI/UX Designer,2023-01-05,2025-04-01T11:00:00Z,admin,2025-04-01T12:15:00Z,support

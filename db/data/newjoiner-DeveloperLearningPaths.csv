@@ -1,0 +1,6 @@
+ID,developer_ID,learningPath_ID,status,progress,createdAt,createdBy,modifiedAt,modifiedBy
+d1f3b2e7-8a9d-4c5f-9e1a-bf56abcd1234,b1a4f89e-3d62-45ba-a2d9-84c583e0fbea,1c4e8d7a-3f5e-49af-8d1c-93123abcde01,Pending,0.00,2025-04-02T09:30:00Z,admin,2025-04-02T10:00:00Z,manager
+e2f6c3a8-4b7e-42bf-8c2a-ad67bcde2345,d2f5b9c8-7e5f-4e6a-81d6-63d7fe41e2db,2b6d9c8a-4e2d-42bf-9d2c-93234defbe02,In Progress,45.50,2025-04-01T08:45:00Z,admin,2025-04-01T09:15:00Z,support
+f3b8d4e9-5c2f-49bf-9e3d-ce78abcd3456,c3d8a1f7-4e2b-49db-9eac-a2c9f74d3ab6,3e5f9d7c-5f3e-43ce-8e2c-93345abcdef03,Completed,100.00,2025-03-28T14:00:00Z,support,2025-03-29T09:00:00Z,admin
+g4e9f5b2-6a3d-48bf-8e4f-fd89bcde4567,f4e6c2d3-8f5d-4b6c-92db-38c5a2f7de1b,4a7f3d6d-6b7d-48df-8f3c-93456abcde04,In Progress,20.00,2025-03-26T09:30:00Z,admin,2025-03-27T11:15:00Z,manager
+h5d7a6f3-7b4c-47bf-9f5a-ed90abcd5678,a5b9d7f4-2c6d-45e2-8abd-4e7c9b3def2c,5c3e9a1f-7d4e-42af-9f4c-93567abcdef05,Pending,0.00,2025-04-01T07:45:00Z,admin,2025-04-01T09:00:00Z,support

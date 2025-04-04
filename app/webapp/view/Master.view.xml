@@ -1,0 +1,99 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="newjoiner.controller.Master">
+    
+    <Wizard id="quizWizard" complete="onWizardComplete">
+        <WizardStep id="step1" title="Selecciona tu Entorno" validated="false">
+            <VBox>
+                <RadioButtonGroup id="environmentSelect" columns="2">
+                    <buttons>
+                        <RadioButton text="SAP BTP Fiori/UI5" />
+                        <RadioButton text="SAP ABAP" />
+                    </buttons>
+                </RadioButtonGroup>
+            </VBox>
+		<Button press="onEnvironmentSelect" text="Paso 2"/>
+        </WizardStep>
+        <WizardStep id="step2UI5" title="Conocimientos en SAP Fiori/UI5" validated="false" visible="false">
+            <VBox>
+                <Label text="Nivel en JavaScript:" />
+                <RadioButtonGroup id="jsSkill" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+                <Label text="Nivel en SAP HANA (Bases de Datos):" />
+                <RadioButtonGroup id="hanaSkill" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+                <Label text="Conocimiento en CSS y HTML:" />
+                <RadioButtonGroup id="cssHtmlSkill" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+                <Label text="Nivel en OData Services:" />
+                <RadioButtonGroup id="odataSkill" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+            </VBox>
+        </WizardStep>
+        <WizardStep id="step2ABAP" title="Conocimientos en SAP ABAP" validated="false" visible="false">
+            <VBox>
+                <Label text="Nivel en SAP ABAP Workbench:" />
+                <RadioButtonGroup id="abapWorkbench" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+                <Label text="Conocimientos en SmartForms y Adobe Forms:" />
+                <RadioButtonGroup id="formsSkill" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+                <Label text="Nivel en progxamación orientada a objetos ABAP:" />
+                <RadioButtonGroup id="oopAbapSkill" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+                <Label text="Conocimientos en extensiones/modificaciones (BADIs, User Exits):" />
+                <RadioButtonGroup id="extensionsSkill" columns="4">
+                    <buttons>
+                        <RadioButton text="Ninguno" />
+                        <RadioButton text="Básico" />
+                        <RadioButton text="Intermedio" />
+                        <RadioButton text="Avanzado" />
+                    </buttons>
+                </RadioButtonGroup>
+            </VBox>
+        </WizardStep>
+    </Wizard>
+</mvc:View>
