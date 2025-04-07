@@ -1,6 +1,5 @@
 {
 	"_version": "1.12.0",
-
 	"sap.app": {
 		"id": "newjoiner",
 		"type": "application",
@@ -9,9 +8,28 @@
 		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "${version}"
+		},
+		"resources": "resources.json",
+		"dataSources": {
+			"mainService": {
+				"uri": "/odata/v4/catalog/",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"odataVersion": "4.0"
+				}
+			},
+			"v2mainService": {
+				"uri": "/v2/catalog/",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"localUri": "localService/metadata.xml",
+					"odataVersion": "2.0"
+				}
+			}
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {},
@@ -21,7 +39,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"dependencies": {
 			"minUI5Version": "1.134.1",
@@ -34,7 +51,7 @@
 				"sap.ui.generic.app": {},
 				"sap.ui.table": {},
 				"sap.ushell": {}
-			  }
+			}
 		},
 		"contentDensities": {
 			"compact": true,
@@ -51,6 +68,16 @@
 					],
 					"fallbackLocale": "en",
 					"async": true
+				}
+			},
+			"oDataModel": {
+				"dataSource": "v2mainService",
+				"preload": true,
+				"settings": {
+					"synchronizationMode": "None",
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true
 				}
 			}
 		},
@@ -78,10 +105,10 @@
 			}
 		},
 		"rootView": {
-				"viewName": "newjoiner.view.App",
-				"type": "XML",
-				"async": true,
-				"id": "app"
-			}
+			"viewName": "newjoiner.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		}
 	}
 }

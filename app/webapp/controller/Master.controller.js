@@ -1,26 +1,59 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast"
-], function (Controller, MessageToast) {
+    "sap/m/MessageToast",
+    "sap/m/MessageBox",
+], function (Controller, MessageToast, MessageBox) {
     "use strict";
+    let history = {
+		prevEnvironment: null,
+	};
 
     return Controller.extend("newJoiner.controller.QuizView", {
-        onEnvironmentSelect: function () {
-            let sName = this.getView().byId("environmentSelect").getSelectedButton().getText();
-            let oView = this.getView();
-			let oWizard = oView.byId("quizWizard");
+        onInit: function () {
+            this._wizard = this.byId("quizWizard");
+			console.log("Master jeje");
+			this.oRouter = this.getOwnerComponent().getRouter();
+			this.oDataModel = this.getOwnerComponent().getModel("oDataModel");
+		},
 
-            // Adaptar los pasos según el entorno seleccionado
-            if (sName.includes("UI5")) {
-                oView.byId("step2UI5").setVisible(true);
-                oView.byId("step2ABAP").setVisible(false);
-				oWizard.goToStep(oView.byId("step2UI5"));
-            } else {
-                oView.byId("step2ABAP").setVisible(true);
-                oView.byId("step2UI5").setVisible(false);
-				oWizard.goToStep(oView.byId("step2ABAP"));
-            }
-        },
+        gostep2: function () {
+			let selectedIndex = this.getView().byId("environmentSelect").getSelectedIndex();
+			switch (selectedIndex) {
+				case 0:
+					this.byId("step1").setNextStep(this.getView().byId("step2UI5"));
+					break;
+				case 1:
+					this.byId("step1").setNextStep(this.getView().byId("step2ABAP"));
+					break;
+				case "Cash on Delivery":
+				default:
+					this.byId("step1").setNextStep(this.getView().byId("step2UI5"));
+					break;
+			}
+		},
+
+        setEnvironment: function () {
+			this.setDiscardableProperty({
+				message: "Are you sure you want to change the payment type ? This will discard your progress.",
+				discardStep: this.byId("step1"),
+				modelPath: "/selectedEnvironment",
+				historyPath: "prevEnvironment"
+			});
+		},
+
+		setDiscardableProperty: function (params) {
+			if (this._wizard.getProgressStep() !== params.discardStep) {
+				MessageBox.warning(params.message, {
+					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+					onClose: function (oAction) {
+						if (oAction === MessageBox.Action.YES) {
+							this._wizard.discardProgress(params.discardStep);
+						} else {
+						}
+					}.bind(this)
+				});
+			}
+		},
 
         onWizardComplete: function () {
             let oView = this.getView();
