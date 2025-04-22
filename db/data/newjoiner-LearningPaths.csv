@@ -1,6 +1,6 @@
 ID,skillArea,level,link,description,estimatedCompletionTime,createdAt,createdBy,modifiedAt,modifiedBy
 1c4e8d7a-3f5e-49af-8d1c-93123abcde01,SAP UI5,Básico,https://sap.ui5.tutorials/basics,Introducción al desarrollo con SAP UI5,5,2025-04-02T08:00:00Z,admin,2025-04-02T08:30:00Z,manager
 2b6d9c8a-4e2d-42bf-9d2c-93234defbe02,SAP ABAP,Intermedio,https://sap.abap.tutorials/intermediate,Aprendizaje intermedio para programadores en ABAP,10,2025-03-30T10:00:00Z,admin,2025-03-30T12:00:00Z,support
-3e5f9d7c-5f3e-43ce-8e2c-93345abcdef03,SAP HANA,Avanzado,https://sap.hana.tutorials/advanced,Conceptos avanzados para bases de datos SAP HANA,8,2025-03-28T14:00:00Z,support,2025-03-29T09:00:00Z,admin
-4a7f3d6d-6b7d-48df-8f3c-93456abcde04,SAP Fiori,Básico,https://sap.fiori.tutorials/basics,Fundamentos del diseño de aplicaciones Fiori,6,2025-03-26T09:30:00Z,admin,2025-03-27T11:15:00Z,manager
-5c3e9a1f-7d4e-42af-9f4c-93567abcdef05,SAP BTP,Intermedio,https://sap.btp.tutorials/intermediate,Aprender las capacidades de la Business Technology Platform,12,2025-04-01T07:45:00Z,admin,2025-04-01T09:00:00Z,support
+3e5f9d7c-5f3e-43ce-8e2c-93345abcdef03,SAP UI5,Avanzado,https://sap.hana.tutorials/advanced,Conceptos avanzados para bases de datos SAP HANA,8,2025-03-28T14:00:00Z,support,2025-03-29T09:00:00Z,admin
+4a7f3d6d-6b7d-48df-8f3c-93456abcde04,SAP ABAP,Básico,https://sap.fiori.tutorials/basics,Fundamentos del diseño de aplicaciones Fiori,6,2025-03-26T09:30:00Z,admin,2025-03-27T11:15:00Z,manager
+5c3e9a1f-7d4e-42af-9f4c-93567abcdef05,SAP UI5,Intermedio,https://sap.btp.tutorials/intermediate,Aprender las capacidades de la Business Technology Platform,12,2025-04-01T07:45:00Z,admin,2025-04-01T09:00:00Z,support

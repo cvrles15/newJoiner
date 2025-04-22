@@ -1,4 +1,4 @@
-sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "newjoiner/model/models"], function (UIComponent, Device, models) {
+sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "newjoiner/model/models", "sap/ui/model/json/JSONModel"], function (UIComponent, Device, models, JSONModel) {
 	"use strict";
 
 	return UIComponent.extend("newjoiner.Component", {
@@ -14,6 +14,8 @@ sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "newjoiner/model/mode
 			oRouter.initialize();
                 // set the device model
 			this.setModel(models.createDeviceModel(), "device");
+			let oLocalModel = new JSONModel();
+			this.setModel(oLocalModel, "localData");
 		},
 		/**
 		 * This method can be called to determine whether the sapUiSizeCompact or sapUiSizeCozy

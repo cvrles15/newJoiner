@@ -3,121 +3,117 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
     controllerName="newjoiner.controller.Master">
-    <!-- DynamicPage Container -->
     <f:DynamicPage
         id="dynamicPage"
         toggleHeaderOnTitleClick="true"
         class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
         showFooter="true">
-        <!-- DynamicPage Title -->
         <f:title>
             <f:DynamicPageTitle>
                 <f:heading>
-                    <Title text="Cuestionario Inicial - SAP New Joiner"/>
+                    <Title text="{i18n>appTitle}"/>
                 </f:heading>
             </f:DynamicPageTitle>
         </f:title>
-        <!-- DynamicPage Content: Wizard -->
         <f:content>
             <Wizard id="quizWizard" complete="onWizardComplete" height="auto" enableBranching="true">
-                <WizardStep id="step1" title="Selecciona tu Entorno" subsequentSteps="step2UI5, step2ABAP" complete="gostep2" >
+                <WizardStep id="step1" title="{i18n>step1Title}" subsequentSteps="step2UI5, step2ABAP" complete="gostep2" >
                     <VBox>
                         <RadioButtonGroup id="environmentSelect" columns="1" selectedIndex="{oDataModel>/selectedEnvironment}" class="sapUiTinyMargin" select="setEnvironment">
                             <buttons>
-                                <RadioButton text="SAP BTP Fiori/UI5" />
-                                <RadioButton text="SAP ABAP" class="sapUiTinyMarginTop"/>
+                                <RadioButton text="{i18n>sapBtp}" />
+                                <RadioButton text="{i18n>sapAbap}" class="sapUiTinyMarginTop"/>
                             </buttons>
                         </RadioButtonGroup>
                     </VBox>
                 </WizardStep>
-                <WizardStep id="step2UI5" title="Conocimientos en SAP Fiori/UI5" activate="check2step">
+                <WizardStep id="step2UI5" title="{i18n>step2Btp}" activate="check2step" validated="false">
                     <VBox class="sapUiTinyMargin">
-                        <Label text="Nivel en JavaScript:" />
+                        <Label text="{i18n>step2Js}" />
                         <RadioButtonGroup id="jsSkill" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
-                        <Label text="Nivel en SAP HANA (Bases de Datos):" />
+                        <Label text="{i18n>step2Hana}" />
                         <RadioButtonGroup id="hanaSkill" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
-                        <Label text="Conocimiento en CSS y HTML:" />
+                        <Label text="{i18n>step2Html}" />
                         <RadioButtonGroup id="cssHtmlSkill" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
-                        <Label text="Nivel en OData Services:" />
+                        <Label text="{i18n>step2Odata}" />
                         <RadioButtonGroup id="odataSkill" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
                     </VBox>
                 </WizardStep>
-                <WizardStep id="step2ABAP" title="Conocimientos en SAP ABAP" activate="check2step">
+                <WizardStep id="step2ABAP" title="{i18n>step2Abap}" activate="check2step" validated="false">
                     <VBox class="sapUiTinyMargin">
-                        <Label text="Nivel en SAP ABAP Workbench:" />
+                        <Label text="{i18n>step2Workbench}" />
                         <RadioButtonGroup id="abapWorkbench" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
-                        <Label text="Conocimientos en SmartForms y Adobe Forms:" />
+                        <Label text="{i18n>step2Form}" />
                         <RadioButtonGroup id="formsSkill" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
-                        <Label text="Nivel en programación orientada a objetos ABAP:" />
+                        <Label text="{i18n>step2Object}" />
                         <RadioButtonGroup id="oopAbapSkill" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
-                        <Label text="Conocimientos en extensiones/modificaciones (BADIs, User Exits):" />
+                        <Label text="{i18n>step2Extension}" />
                         <RadioButtonGroup id="extensionsSkill" columns="4" class="sapUiTinyMarginTop sapUiTinyMarginBottom">
                             <buttons>
-                                <RadioButton text="Ninguno" />
-                                <RadioButton text="Básico" />
-                                <RadioButton text="Intermedio" />
-                                <RadioButton text="Avanzado" />
+                                <RadioButton text="{i18n>none}" />
+                                <RadioButton text="{i18n>basic}" />
+                                <RadioButton text="{i18n>medium}" />
+                                <RadioButton text="{i18n>advanced}" />
                             </buttons>
                         </RadioButtonGroup>
                     </VBox>
                 </WizardStep>
             </Wizard>
         </f:content>
-        <!-- DynamicPage Footer -->
         <f:footer>
-            <OverflowToolbar>
+            <OverflowToolbar id="buttontoolbar" enabled="false">
                 <ToolbarSpacer />
-                <Button type="Accept" text="Aceptar" press="onAccept" />
-                <Button type="Reject" text="Cancelar" press="onCancel" />
+                <Button type="Accept" text="{i18n>accept}" press="onWizardComplete" />
+                <Button type="Reject" text="{i18n>reject}" press="setEnvironment" />
             </OverflowToolbar>
         </f:footer>
     </f:DynamicPage>

@@ -21,25 +21,36 @@ sap.ui.define([
 			switch (selectedIndex) {
 				case 0:
 					this.byId("step1").setNextStep(this.getView().byId("step2UI5"));
+                    history.prevEnvironment = selectedIndex;
+                    this.byId("buttontoolbar").setEnabled(true);
 					break;
 				case 1:
 					this.byId("step1").setNextStep(this.getView().byId("step2ABAP"));
+                    history.prevEnvironment = selectedIndex;
+                    this.byId("buttontoolbar").setEnabled(true);
 					break;
 				case "Cash on Delivery":
 				default:
 					this.byId("step1").setNextStep(this.getView().byId("step2UI5"));
+                    history.prevEnvironment = selectedIndex;
+                    this.byId("buttontoolbar").setEnabled(true);
 					break;
 			}
 		},
 
         setEnvironment: function () {
-			this.setDiscardableProperty({
-				message: "Are you sure you want to change the payment type ? This will discard your progress.",
-				discardStep: this.byId("step1"),
-				modelPath: "/selectedEnvironment",
-				historyPath: "prevEnvironment"
-			});
-		},
+            var oResourceModel = this.getView().getModel("i18n");
+            oResourceModel.getResourceBundle().then(function (oBundle) {
+                var sMessage = oBundle.getText("btnText");
+                this.setDiscardableProperty({
+                    message: sMessage,
+                    discardStep: this.byId("step1"),
+                });
+            }.bind(this)).catch(function (oError) {
+                console.error("Error al cargar el ResourceBundle:", oError);
+            });
+        },        
+        
 
 		setDiscardableProperty: function (params) {
 			if (this._wizard.getProgressStep() !== params.discardStep) {
@@ -48,7 +59,9 @@ sap.ui.define([
 					onClose: function (oAction) {
 						if (oAction === MessageBox.Action.YES) {
 							this._wizard.discardProgress(params.discardStep);
+                            this.byId("buttontoolbar").setEnabled(false);
 						} else {
+                            this.byId("environmentSelect").setSelectedIndex(history.prevEnvironment);
 						}
 					}.bind(this)
 				});
@@ -57,49 +70,24 @@ sap.ui.define([
 
         onWizardComplete: function () {
             let oView = this.getView();
+            let oModel = this.getOwnerComponent().getModel("localData");
             let sEnvironment = oView.byId("environmentSelect").getSelectedButton().getText();
-
-            // Recolectar respuestas según el entorno seleccionado
             let aAnswers = [];
             if (sEnvironment === "SAP BTP Fiori/UI5") {
-                aAnswers.push({
-                    skill: "JavaScript",
-                    level: oView.byId("jsSkill").getSelectedButton().getText()
-                });
-                aAnswers.push({
-                    skill: "SAP HANA",
-                    level: oView.byId("hanaSkill").getSelectedButton().getText()
-                });
-                aAnswers.push({
-                    skill: "CSS/HTML",
-                    level: oView.byId("cssHtmlSkill").getSelectedButton().getText()
-                });
-                aAnswers.push({
-                    skill: "OData Services",
-                    level: oView.byId("odataSkill").getSelectedButton().getText()
-                });
+                aAnswers.push({ skill: "JavaScript", level: oView.byId("jsSkill").getSelectedButton().getText() });
+                aAnswers.push({ skill: "SAP HANA", level: oView.byId("hanaSkill").getSelectedButton().getText() });
+                aAnswers.push({ skill: "CSS/HTML", level: oView.byId("cssHtmlSkill").getSelectedButton().getText() });
+                aAnswers.push({ skill: "OData Services", level: oView.byId("odataSkill").getSelectedButton().getText() });
             } else if (sEnvironment === "SAP ABAP") {
-                aAnswers.push({
-                    skill: "ABAP Workbench",
-                    level: oView.byId("abapWorkbench").getSelectedButton().getText()
-                });
-                aAnswers.push({
-                    skill: "SmartForms/Adobe Forms",
-                    level: oView.byId("formsSkill").getSelectedButton().getText()
-                });
-                aAnswers.push({
-                    skill: "ABAP OOP",
-                    level: oView.byId("oopAbapSkill").getSelectedButton().getText()
-                });
-                aAnswers.push({
-                    skill: "Extensions/BADIs/User Exits",
-                    level: oView.byId("extensionsSkill").getSelectedButton().getText()
-                });
+                aAnswers.push({ skill: "ABAP Workbench", level: oView.byId("abapWorkbench").getSelectedButton().getText() });
+                aAnswers.push({ skill: "SmartForms/Adobe Forms", level: oView.byId("formsSkill").getSelectedButton().getText() });
+                aAnswers.push({ skill: "ABAP OOP", level: oView.byId("oopAbapSkill").getSelectedButton().getText() });
+                aAnswers.push({ skill: "Extensions/BADIs/User Exits", level: oView.byId("extensionsSkill").getSelectedButton().getText() });
             }
-
-            // Lógica final para redirigir al Learning Path
+            oModel.setProperty("/environment", sEnvironment);
+            oModel.setProperty("/answers", aAnswers);
             MessageToast.show("Redirigiendo al Learning Path para: " + sEnvironment);
-            console.log("Respuestas:", aAnswers);
-        }
+            this.oRouter.navTo("learningSection");
+        }        
     });
 });

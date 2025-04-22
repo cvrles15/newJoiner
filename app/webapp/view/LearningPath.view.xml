@@ -1,0 +1,56 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:suite="sap.suite.ui.commons"
+    controllerName="newjoiner.controller.LearningPath">
+    <f:DynamicPage id="learningPathPage" showFooter="true">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>learningPathTitle}" level="H1"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <VBox>
+                <ProgressIndicator 
+                    percentValue="{localData>/progress}" 
+                    displayValue="{localData>/progress}%"
+                    width="100%" />
+                <suite:Timeline id="learningTimeline">
+                    <suite:TimelineItem
+                        title="Evaluación Completada"
+                        text="Has finalizado la evaluación inicial."
+                        dateTime="2025-04-22T09:00"
+                        icon="sap-icon://accept" />
+                    <suite:TimelineItem
+                        title="Iniciando Upskilling"
+                        text="Comienza a mejorar en áreas clave."
+                        dateTime="2025-04-22T10:00"
+                        icon="sap-icon://learning-assistant" />
+                </suite:Timeline>
+                <IconTabBar>
+    <items>
+        <IconTabFilter text="SAP BTP" icon="sap-icon://cloud">
+            <List items="{localData>/btpCourses}">
+                <ObjectListItem title="{title}"  icon="sap-icon://education"/>
+            </List>
+        </IconTabFilter>
+        <IconTabFilter text="SAP ABAP" icon="sap-icon://database">
+            <List items="{localData>/abapCourses}">
+                <ObjectListItem title="{title}"  icon="sap-icon://education"/>
+            </List>
+        </IconTabFilter>
+    </items>
+</IconTabBar>
+            </VBox>
+        </f:content>
+        <f:footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button text="Finalizar Aprendizaje" type="Emphasized" press="onCompleteLearning"/>
+            </Toolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>

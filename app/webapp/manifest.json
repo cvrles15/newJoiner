@@ -95,11 +95,20 @@
 					"pattern": "",
 					"name": "master",
 					"target": "master"
+				},
+				{
+					"pattern": "learningSection",
+					"name": "learningSection",
+					"target": "learningSection"
 				}
 			],
 			"targets": {
 				"master": {
 					"viewName": "Master",
+					"viewType": "XML"
+				},
+				"learningSection": {
+					"viewName": "LearningPath",
 					"viewType": "XML"
 				}
 			}
